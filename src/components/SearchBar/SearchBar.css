@@ -1,0 +1,28 @@
+.rmdb-searchbar {
+  background-color: #1c1b1b;
+  height: 3em;
+  padding: 1%;
+}
+
+.rmdb-searchbar-content {
+  border: 1px solid #3a3838;
+  background-color: #3a3838;
+  border-radius: 30px;
+  padding: 0.5%;
+  margin: auto;
+  width: 900px;
+}
+
+.fa-search {
+  color: #ffff;
+}
+
+.rmdb-searchbar-input {
+  background-color: transparent;
+  border: 0px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  padding: 0.8%;
+  margin-left: 0.5%;
+  width: 95%;
+}

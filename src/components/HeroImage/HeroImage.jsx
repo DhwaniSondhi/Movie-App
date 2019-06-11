@@ -2,6 +2,7 @@ import React from "react";
 import "./HeroImage.css";
 
 const HeroImage = props => {
+  console.log(props.image);
   return (
     <div
       className="rmdb-heroimage"

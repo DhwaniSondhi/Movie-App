@@ -1,7 +1,20 @@
 .rmdb-heroimage {
-  height: 20em;
+  height: 25em;
   width: 100%;
   background-color: black;
   margin: 0px;
   color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.rmdb-heroimage-text {
+  width: 35%;
+  padding-right: 32%;
+  padding-top: 13.5%;
+  margin: auto;
+  align-items: center;
+  font-size: 90%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+  text-align: justify;
 }

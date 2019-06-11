@@ -7,5 +7,6 @@ export const API_KEY = "f14076d6b113f851e4174cefa2eedf71";
 
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
 
-//size
-export const SIZE = "w1280";
+//sizes
+export const HERO_SIZE = "w1280";
+export const GRID_IMAGE_SIZE = "w200";

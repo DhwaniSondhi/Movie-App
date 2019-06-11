@@ -5,7 +5,13 @@ import Grid from "../Grid/Grid";
 import MovieThumb from "../MovieThumb/MovieThumb";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import Spinner from "../Spinner/Spinner";
-import { API_URL, API_KEY, IMAGE_BASE_URL, SIZE } from "../../config.js";
+import {
+  API_URL,
+  API_KEY,
+  IMAGE_BASE_URL,
+  HERO_SIZE,
+  GRID_IMAGE_SIZE
+} from "../../config.js";
 import "./Home.css";
 
 class Home extends Component {
@@ -16,6 +22,16 @@ class Home extends Component {
     currentPage: 0,
     totalPage: 0,
     searchItem: ""
+  };
+  searchImages = searchItem => {
+    let endpt = "";
+    this.setState({ movies: [], loading: true, searchItem: searchItem.trim() });
+    if (searchItem.trim() === "") {
+      endpt = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+    } else {
+      endpt = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${searchItem}`;
+    }
+    this.fetchImages(endpt);
   };
   loadMoreImages = () => {
     let endpt = "";
@@ -34,15 +50,13 @@ class Home extends Component {
     fetch(endpoint)
       .then(result => result.json())
       .then(result => {
-        const updateMovies = [...this.state.movies, ...result.results];
         this.setState({
-          movies: [...updateMovies],
+          movies: this.state.movies.concat(result.results),
           heroImage: this.state.heroImage || result.results[0],
           loading: false,
           currentPage: result.page,
           totalPage: result.total_pages
         });
-        console.log(result);
       });
   };
   componentDidMount() {
@@ -54,22 +68,45 @@ class Home extends Component {
   render() {
     return (
       <div className="rmdb-home">
-        {
-          (this.state.heroImage = this.state.heroImage ? (
-            <div>
-              <HeroImage
-                image={`${IMAGE_BASE_URL}${SIZE}/${
-                  this.state.heroImage.poster_path
-                }`}
-                title={this.state.heroImage.original_title}
-                text={this.state.heroImage.overview}
-              />
+        {this.state.heroImage ? (
+          <div>
+            <HeroImage
+              image={`${IMAGE_BASE_URL}${HERO_SIZE}/${
+                this.state.heroImage.poster_path
+              }`}
+              title={this.state.heroImage.original_title}
+              text={this.state.heroImage.overview}
+            />
 
-              <SearchBar />
-            </div>
-          ) : null)
-        }
-        <Grid />
+            <SearchBar searchFunc={this.searchImages} />
+          </div>
+        ) : null}
+        <div className="rmdb-home-grid">
+          {" "}
+          <Grid
+            header={this.state.searchItem ? "Search Result" : "Popular Movies"}
+            loading={this.state.loading}
+          >
+            {this.state.movies.map((element, i) => {
+              return (
+                <MovieThumb
+                  key={i}
+                  clickable
+                  image={
+                    element.poster_path
+                      ? `${IMAGE_BASE_URL}${GRID_IMAGE_SIZE}/${
+                          element.poster_path
+                        }`
+                      : "./images/no_image.jpg"
+                  }
+                  movieId={element.id}
+                  movieName={element.original_title}
+                />
+              );
+            })}
+          </Grid>
+        </div>
+
         <Spinner />
         <LoadMoreBtn />
       </div>

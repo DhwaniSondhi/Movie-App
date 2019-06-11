@@ -1,3 +1,15 @@
 .rmdb-header {
-  background-color: black;
+  background-color: #1c1b1b;
+  height: 5em;
+}
+.rmdb-logo {
+  width: 18%;
+  margin-left: 16%;
+  padding: 2%;
+}
+.rmdb-tmdb-logo {
+  width: 7%;
+  float: right;
+  margin-right: 16%;
+  padding: 2%;
 }

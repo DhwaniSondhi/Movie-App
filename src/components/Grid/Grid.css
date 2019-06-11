@@ -1,0 +1,8 @@
+.rmdb-grid-content {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}
+.rmdb-grid {
+}
