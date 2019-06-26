@@ -4,8 +4,8 @@ import "./Navigation.css";
 
 const Navigation = props => {
   return (
-    <div className="rmdb-navigation">
-      <div className="rmdb-navigation-content">
+    <div className="app-navigation">
+      <div className="app-navigation-content">
         <Link to="/">
           <p>Home</p>
         </Link>

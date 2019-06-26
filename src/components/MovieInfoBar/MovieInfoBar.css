@@ -1,0 +1,34 @@
+.app-movieinfobar-content {
+  margin-left: 0.9em;
+}
+.app-movieinfobar-content-col {
+  display: block;
+  width: auto;
+  float: left;
+  padding: 0px 70px;
+}
+.app-movieinfobar {
+  background-color: #1c1b1b;
+  color: white;
+  font-size: 22px;
+  font-family: Abel, sans-serif;
+  height: 3em;
+}
+.app-movieinfobar .app-movieinfobar-content .app-movieinfobar-content-col .fa {
+  color: white;
+  padding: 0px 15px;
+  display: block;
+  width: auto;
+  float: left;
+  font-size: 40px;
+  margin-top: 0.35em;
+}
+.app-movieinfobar
+  .app-movieinfobar-content
+  .app-movieinfobar-content-col
+  .app-movieinfobar-info {
+  display: block;
+  width: auto;
+  float: left;
+  margin-bottom: 1em;
+}

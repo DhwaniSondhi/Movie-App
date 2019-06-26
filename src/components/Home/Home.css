@@ -1,4 +1,8 @@
-.rmdb-home-grid {
+.app-home-grid {
   margin: auto;
-  width: 900px;
+  width: 1200px;
+}
+.app-space {
+  width: 2em;
+  height: 6em;
 }

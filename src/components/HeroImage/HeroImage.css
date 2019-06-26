@@ -1,5 +1,5 @@
-.rmdb-heroimage {
-  height: 25em;
+.app-heroimage {
+  height: 34em;
   width: 100%;
   background-color: black;
   margin: 0px;
@@ -7,14 +7,17 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.rmdb-heroimage-content {
+.app-heroimage-content {
   position: relative;
   width: 35em;
-  padding-right: 20em;
+  padding-right: 40em;
   margin: auto;
 }
-.rmdb-heroimage-text {
+.app-heroimage-text {
   position: absolute;
-  width: 35em;
-  bottom: -25em;
+  width: 40em;
+  font-family: Abel, sans-serif;
+  font-size: 22px;
+  bottom: -24em;
+  text-justify: justify;
 }

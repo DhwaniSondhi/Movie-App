@@ -6,7 +6,7 @@ const Actor = props => {
   const GRID_SIZE = "w154";
 
   return (
-    <div className="rmdb-actor">
+    <div className="app-actor">
       <img
         src={
           props.actor.profile_path
@@ -15,8 +15,10 @@ const Actor = props => {
         }
         alt="actorthumb"
       />
-      <span className="rmdb-actor-name">{props.actor.name}</span>
-      <span className="rmdb-actor-character">{props.actor.character}</span>
+      <span className="app-actor-name">{props.actor.name}</span>
+      <span className="app-actor-character">
+        {"- " + props.actor.character}
+      </span>
     </div>
   );
 };

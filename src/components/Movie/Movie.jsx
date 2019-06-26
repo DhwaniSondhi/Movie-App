@@ -56,7 +56,7 @@ class Movie extends Component {
 
   render() {
     return (
-      <div className="rmdb-movie">
+      <div className="app-movie">
         {this.state.movie ? (
           <div>
             <Navigation movie={this.props.location.movieName} />
@@ -72,7 +72,7 @@ class Movie extends Component {
           </div>
         ) : null}
         {this.state.actor ? (
-          <div className="rmdb-movie-grid">
+          <div className="app-movie-grid">
             <Grid header="Actors">
               {this.state.actor.map((actorEle, i) => {
                 return <Actor key={"Actor" + i} actor={actorEle} />;

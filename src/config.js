@@ -9,4 +9,4 @@ export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/";
 
 //sizes
 export const HERO_SIZE = "w1280";
-export const GRID_IMAGE_SIZE = "w200";
+export const GRID_IMAGE_SIZE = "w500";

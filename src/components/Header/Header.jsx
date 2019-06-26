@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="rmdb-header">
-      <div className="rmdb-header-content">
+    <div className="app-header">
+      <div className="app-header-content">
         <Link to="/">
           <img
-            className="rmdb-logo"
+            className="app-logo"
             src="./images/reactMovie_logo.png"
-            alt="rmdb-logo"
+            alt="app-logo"
           />
         </Link>
         <img
-          className="rmdb-tmdb-logo"
+          className="app-tmdb-logo"
           src="./images/tmdb_logo.png"
           alt="tmdb-logo"
         />

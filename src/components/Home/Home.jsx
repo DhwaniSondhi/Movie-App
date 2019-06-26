@@ -36,14 +36,15 @@ class Home extends Component {
   loadMoreImages = () => {
     let endpt = "";
     this.setState({ loading: true });
-    if (this.setState.searctItem === "") {
+    if (this.state.searchItem.trim() === "") {
       endpt = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=${this
         .state.currentPage + 1}`;
     } else {
-      endpt = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query${
+      endpt = `${API_URL}search/movie?api_key=${API_KEY}&language=en-US&query=${
         this.state.searchItem
       }&page=${this.state.currentPage + 1}`;
     }
+
     this.fetchImages(endpt);
   };
   fetchImages = endpoint => {
@@ -67,7 +68,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="rmdb-home">
+      <div className="app-home">
         {this.state.heroImage ? (
           <div>
             <HeroImage
@@ -81,7 +82,7 @@ class Home extends Component {
             <SearchBar searchFunc={this.searchImages} />
           </div>
         ) : null}
-        <div className="rmdb-home-grid">
+        <div className="app-home-grid">
           {" "}
           <Grid
             header={this.state.searchItem ? "Search Result" : "Popular Movies"}
@@ -106,9 +107,9 @@ class Home extends Component {
             })}
           </Grid>
         </div>
-
-        <Spinner />
-        <LoadMoreBtn />
+        {this.state.loading ? <Spinner /> : null}
+        <LoadMoreBtn onClick={this.loadMoreImages} />
+        <div className="app-space" />
       </div>
     );
   }

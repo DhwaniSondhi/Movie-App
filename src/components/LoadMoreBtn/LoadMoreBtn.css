@@ -1,0 +1,15 @@
+.app-loadMore {
+  background-color: #fd7e14;
+  margin-top: 1em;
+  display: block;
+  height: 1.5em;
+  width: 29.2em;
+  border: 1px solid #fd7e14;
+  margin-left: 0.75em;
+  font-family: Abel, sans-serif;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 40px;
+}

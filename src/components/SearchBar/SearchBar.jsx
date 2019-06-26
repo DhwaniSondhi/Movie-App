@@ -17,12 +17,12 @@ class SearchBar extends Component {
   };
   render() {
     return (
-      <div className="rmdb-searchbar">
-        <div className="rmdb-searchbar-content">
+      <div className="app-searchbar">
+        <div className="app-searchbar-content">
           <i className="fa fa-search fa-lg changes-search " />
           <input
             type="text"
-            className="rmdb-searchbar-input"
+            className="app-searchbar-input"
             placeholder="Search"
             value={this.state.value}
             onChange={this.searchOption}

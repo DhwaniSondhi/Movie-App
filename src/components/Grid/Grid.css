@@ -1,8 +1,7 @@
-.rmdb-grid-content {
+.app-grid-content {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
-  grid-column-gap: 30px;
+  grid-template-columns: repeat(4, 300px);
+
+  grid-column-gap: 5px;
   grid-row-gap: 30px;
-}
-.rmdb-grid {
 }

@@ -1,0 +1,15 @@
+.app-navigation {
+  height: 2em;
+  padding-left: 4%;
+  border: 1px solid #3a3838;
+  background-color: #3a3838;
+  padding-bottom: 20px;
+}
+.app-navigation-content p {
+  padding-right: 10px;
+  display: inline-block;
+  font-size: 100%;
+  font-weight: 600;
+  font-family: Abel, sans-serif;
+  color: white;
+}

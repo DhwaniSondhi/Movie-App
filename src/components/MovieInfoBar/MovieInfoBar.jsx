@@ -5,25 +5,25 @@ import "./MovieInfoBar.css";
 
 const MovieInfoBar = props => {
   return (
-    <div className="rmdb-movieinfobar">
-      <div className="rmdb-movieinfobar-content">
-        <div className="rmdb-movieinfobar-content-col">
-          <i className="fa-time fa-2x" name="clock-o" />
-          <span className="rmdb-movieinfobar-info">
+    <div className="app-movieinfobar">
+      <div className="app-movieinfobar-content">
+        <div className="app-movieinfobar-content-col">
+          <i className="fa fa-clock-o fa-2x" />
+          <p className="app-movieinfobar-info">
             Running Time: {calcTime(props.time)}
-          </span>
+          </p>
         </div>
-        <div className="rmdb-movieinfobar-content-col">
-          <i className="fa-budget fa-2x" name="money" />
-          <span className="rmdb-movieinfobar-info">
+        <div className="app-movieinfobar-content-col">
+          <i className="fa fa-money fa-2x" />
+          <p className="app-movieinfobar-info">
             Budget: {convertMoney(props.budget)}
-          </span>
+          </p>
         </div>
-        <div className="rmdb-movieinfobar-content-col">
-          <i className="fa-revenue fa-2x" name="ticket" />
-          <span className="rmdb-movieinfobar-info">
+        <div className="app-movieinfobar-content-col">
+          <i className="fa fa-ticket  fa-2x" />
+          <p className="app-movieinfobar-info">
             Revenue: {convertMoney(props.revenue)}
-          </span>
+          </p>
         </div>
       </div>
     </div>
