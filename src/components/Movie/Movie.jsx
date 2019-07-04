@@ -23,7 +23,6 @@ class Movie extends Component {
         if (result.status_code) {
           this.setState({ loading: false });
         } else {
-          console.log(result);
           this.setState({
             movie: result
           });
@@ -33,25 +32,40 @@ class Movie extends Component {
           fetch(endptNew)
             .then(result => result.json())
             .then(result => {
-              this.setState({
-                director: result.crew.filter(
-                  crewMem => crewMem.job === "Director"
-                ),
-                actor: result.cast,
-                loading: false
-              });
+              this.setState(
+                {
+                  director: result.crew.filter(
+                    crewMem => crewMem.job === "Director"
+                  ),
+                  actor: result.cast,
+                  loading: false
+                },
+                () => {
+                  localStorage.setItem(
+                    `${this.props.match.params.movieId}`,
+                    JSON.stringify(this.state)
+                  );
+                }
+              );
             });
         }
       })
       .catch(exp => console.log("Error: ", exp));
   };
   componentWillMount() {
-    this.setState({ loading: true });
-    //fetch movie details
-    const endpt = `${API_URL}movie/${
-      this.props.match.params.movieId
-    }?api_key=${API_KEY}&langauge-en-US`;
-    this.fetchImages(endpt);
+    if (localStorage.getItem(`${this.props.match.params.movieId}`)) {
+      const state = JSON.parse(
+        localStorage.getItem(`${this.props.match.params.movieId}`)
+      );
+      this.setState({ ...state });
+    } else {
+      this.setState({ loading: true });
+      //fetch movie details
+      const endpt = `${API_URL}movie/${
+        this.props.match.params.movieId
+      }?api_key=${API_KEY}&langauge-en-US`;
+      this.fetchImages(endpt);
+    }
   }
 
   render() {

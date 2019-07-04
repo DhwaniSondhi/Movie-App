@@ -1,5 +1,6 @@
 import React from "react";
 import "./MovieThumb.css";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const MovieThumb = props => {
@@ -7,7 +8,7 @@ const MovieThumb = props => {
     return props.clickable ? (
       <Link to={{ pathname: "/" + props.movieId, movieName: props.movieName }}>
         <img
-          className="app-gridImages border-images"
+          className="app-gridImages border-images app-click"
           src={linkImage}
           alt="moviethumb"
         />
@@ -18,4 +19,12 @@ const MovieThumb = props => {
   };
   return <div className="app-moviethumb">{getImage(props.image)}</div>;
 };
+
+MovieThumb.propTypes = {
+  image: PropTypes.string,
+  clickable: PropTypes.bool,
+  movieId: PropTypes.number,
+  movieName: PropTypes.string
+};
+
 export default MovieThumb;

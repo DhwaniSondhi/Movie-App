@@ -51,19 +51,31 @@ class Home extends Component {
     fetch(endpoint)
       .then(result => result.json())
       .then(result => {
-        this.setState({
-          movies: this.state.movies.concat(result.results),
-          heroImage: this.state.heroImage || result.results[0],
-          loading: false,
-          currentPage: result.page,
-          totalPage: result.total_pages
-        });
+        this.setState(
+          {
+            movies: this.state.movies.concat(result.results),
+            heroImage: this.state.heroImage || result.results[0],
+            loading: false,
+            currentPage: result.page,
+            totalPage: result.total_pages
+          },
+          () => {
+            if (this.state.searchItem === "") {
+              localStorage.setItem("HomeState", JSON.stringify(this.state));
+            }
+          }
+        );
       });
   };
   componentDidMount() {
-    this.setState({ loading: true });
-    const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-    this.fetchImages(endpoint);
+    if (localStorage.getItem("HomeState")) {
+      const state = JSON.parse(localStorage.getItem("HomeState"));
+      this.setState({ ...state });
+    } else {
+      this.setState({ loading: true });
+      const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+      this.fetchImages(endpoint);
+    }
   }
 
   render() {

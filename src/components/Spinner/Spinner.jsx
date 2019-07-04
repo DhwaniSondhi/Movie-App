@@ -4,7 +4,7 @@ import "./Spinner.css";
 const Spinner = () => {
   return (
     <div className="app-loader">
-      <i class="fa fa-spinner" />
+      <i className="fa fa-spinner" />
     </div>
   );
 };
